@@ -137,7 +137,7 @@ def hot_drinksfunc():
 def cold_drinksfunc():
  for i in cold_drinks:
    print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
-   print(print("--------------------------------------------\n"))
+   print("--------------------------------------------\n")
  print("Enter the Item ID for your wanted product: ")
  cditems_id = str(input())
  if (cditems_id == 'B1'):
@@ -241,10 +241,9 @@ def change_func():
      total = 0
      while True:
         total += int(input("Insert money amount: ").strip())
-        
-        print(total)
-        if total > coins:
-            print("Here's your change =", total - coins)
+        total -= coins
+        if total <= coins:
+            print("Amount due: ", coins - total)
             print("\n**********************************\n")
             print("Thank you for using our vending machine!")
             return
@@ -252,7 +251,7 @@ def change_func():
             print("No Change Owed")
             return
         else:
-            print("Amount Due =", coins-total)
+            print("Amount Due =", total - coins)
 
 
 
@@ -263,8 +262,7 @@ print("Enter your selected category: ")
 selection = str(input())
 if (selection == 'Hot drinks'):
   print("\n**********************************\n")
-  print(hot_drinksfunc())
-  
+  print(hot_drinksfunc()) 
 elif (selection == 'Cold drinks'):
   print(cold_drinksfunc())
 elif (selection == 'Chips'):
