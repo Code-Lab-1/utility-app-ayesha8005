@@ -1,7 +1,8 @@
 print("----- Welcome to the vending machine -----")
 
-hd1 = {
-  "item" : "Hot Chocolate", "item_price" : 4, "item_id" : "A1"
+
+machine = hd1 = {
+  "item" : "Hot Chocolate", "item_price" : 4, "item_id" : "A1", "stock" : 0
 }
 hd2 = { 
   "item" : "Green Tea", "item_price" : 3, "item_id" : "A2"
@@ -10,7 +11,7 @@ hd3 = {
   "item" : "Karak Tea", "item_price" : 2, "item_id" : "A3"
 }
 hd4 = {
-  "item" : "Cappuccino", "item_price" : 5, "item_id" : "A4"
+  "item" : "Cappuccino", "item_price" : 5, "item_id" : "A4", "stock" : 1
 }
 
 
@@ -62,40 +63,41 @@ coins = 10,20,30,40,50
 
 
 def add_hdrink():
-  hd = (input("Would you like to add another drink? Enter 'Y' or else 'N' : "))
+  hd = (input("\nWould you like to add another drink? Enter 'Y' or else 'N' : \n"))
   if (hd == 'Y'):
     print(hot_drinksfunc())
   else:
-    print(vendyfunc())
+   (change_func())
+
 
 def add_cdrink():
   cd = (input("Would you like to add another drink? Enter 'Y' or else 'N' : "))
   if (cd == 'Y'):
     print(cold_drinksfunc())
   else:
-    print(vendyfunc())
+    print(change_func())
 
 def add_chips():
   cd = (input("Would you like to add another Chips? Enter 'Y' or else 'N' : "))
   if (cd == 'Y'):
-    print(chips_func)
+    print(chips_func())
   else:
-    print(vendyfunc())
+    print(change_func())
 
 def add_choco():
   choco = (input("Would you like to add another Chocolate? Enter 'Y' or else 'N' : "))
   if (choco == 'Y'):
     print(choco_func())
   else:
-    print(vendyfunc())
+    print(change_func())
 
 currency = (str(input("This machine can only take in AED/Dirhams. Are you sure you want to continue. (yes/no): ")))
 
-
+item_list = []
 
 def vendyfunc():
   print(vending)
-  v = str(input("Choose from the following category, 'N' to quit: "))
+  v = str(input("\nChoose from the following category, 'N' to quit: \n"))
   if(v == 'Hot drinks'):
     print(hot_drinksfunc())
   elif( v == 'Cold drinks'):
@@ -105,8 +107,9 @@ def vendyfunc():
   elif(v == 'Chocolate'):
     print(choco_func())
   else:
-    print(change_func())
-
+     print(change_func())
+ 
+ 
 
 
 def hot_drinksfunc():
@@ -119,44 +122,54 @@ def hot_drinksfunc():
  if (items_id == 'A1'):
     hot_choco = 4
     print(add_hdrink())
+    print("\nYour products: ")
+    print(f"Item: {hd1['item']} --- Price: {hd1['item_price']}")
  elif (items_id == 'A2'):
    green_tea = 3
    print(add_hdrink())
+   print("\nYour products: ")
+   print(f"Item: {hd2['item']} --- Price: {hd2['item_price']}")
  elif (items_id == 'A3'):
    karak = 2
    print(add_hdrink())
+   print("\nYour products: ")
+   print(f"Item: {hd3['item']} --- Price: {hd3['item_price']}")
  elif (items_id == 'A4'):
    cappu = 5
    print(add_hdrink())
+   print("\nYour products: ")
+   print(f"Item: {hd4['item']} --- Price: {hd4['item_price']}")
  elif (items_id == "Finish"):
-   print(change_func())
+    print("\nYour products: ")
+    print(f"Item: {i['item']} --- Price: {i['item_price']}")  
  else:
-  print("Please enter a valid response")
-  print(hot_drinksfunc())
+    print("Please enter a valid response")
+    print(hot_drinksfunc())
 
 def cold_drinksfunc():
  for i in cold_drinks:
    print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
    print("--------------------------------------------\n")
- print("Enter the Item ID for your wanted product: ")
- cditems_id = str(input())
- if (cditems_id == 'B1'):
+ item_list = str(input())
+ print("Enter the Item ID for your wanted product or 'Finish' to quit: ")
+ if (item_list == 'B1'):
     iced_latte = 15
     print(add_cdrink())
- elif (cditems_id == 'B2'):
+ elif (item_list == 'B2'):
     Caramel_Macchiato = 17
     print(add_cdrink())
- elif (cditems_id == 'B3'):
+ elif (item_list == 'B3'):
     Iced_Tea = 13
     print(add_cdrink())
- elif (cditems_id == 'B4'):
+ elif (item_list == 'B4'):
     Lime_Soda = 9
     print(add_cdrink())
- elif (cditems_id == "Finish"):
-   print(change_func())
  else:
   print("Please enter a valid response")
   print(cold_drinksfunc())
+ 
+ 
+
 
 
 
@@ -164,7 +177,7 @@ def chips_func():
  for i in chips:
    print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
    print("--------------------------------------------\n")
- print("Enter the item ID for your wanted product: ")
+ print("Enter the item ID for your wanted product or 'Finish' to quit: ")
  chitem_id = str(input())
  if (chitem_id == 'C1'):
    lays_chilli = 3
@@ -189,7 +202,7 @@ def choco_func():
  for i in chocolate:
    print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
    print("--------------------------------------------\n")
- print("Enter the item ID for your wanted product: ")
+ print("Enter the item ID for your wanted product or 'Finish' to quit: ")
  citem_id = str(input())
  if (citem_id == 'D1'):
      galaxy_smooth = 3
@@ -211,15 +224,9 @@ def choco_func():
 print("The maximum number of coins that can be inputted is 10-50.")
 print("\n**********************************\n")
 
-def stock():
-    stock = hot_drinks, cold_drinks, chips, chocolate.values
-    i = 0
-    for amount in stock:
-        i += amount
-    print(i)
+vm=[]
 
-
-
+prompt = ""
 
 def change_func():
      coins = hd1["item_price"]
@@ -236,25 +243,23 @@ def change_func():
      coins = c4["item_price"]
      coins = ch1["item_price"]
      coins = ch2["item_price"]
-     coins = ch3["item_price"]
+     coins = (ch3["item_price"])
+     cash_input = 10,20,30,40
+     price = ["item_price"]
+     vm.append(prompt)
+     cash_input= int(input("Enter money amount: "))
+     if cash_input == sum(hd1["item_price"]):
+       print("No change owed. Thank you for choosing vending machine")
+     if cash_input < sum:
+         print("Insert right amount: ")
+         coins+=1
+     else:
+        cash_input > sum
+        coins = cash_input - sum
+        print("Here is your change", sum)
+        print("Thank you for using this vending machine. Have a great day!")
 
-     total = 0
-     while True:
-        total += int(input("Insert money amount: ").strip())
-        total -= coins
-        if total <= coins:
-            print("Amount due: ", coins - total)
-            print("\n**********************************\n")
-            print("Thank you for using our vending machine!")
-            return
-        elif total == coins:
-            print("No Change Owed")
-            return
-        else:
-            print("Amount Due =", total - coins)
-
-
-
+      
 if (currency == 'yes'):
   print("Choose from the following category you want.")
   print(vending)
@@ -272,5 +277,3 @@ elif (selection == 'Chocolate'):
 else:
   print("INVALID RESPONSE")
 
-
-  
