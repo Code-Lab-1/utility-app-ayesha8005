@@ -245,18 +245,21 @@ def change_func():
      coins = ch2["item_price"]
      coins = (ch3["item_price"])
      cash_input = 10,20,30,40
-     price = ["item_price"]
+     print(type(change_func))
+     print(callable(change_func))
      vm.append(prompt)
      cash_input= int(input("Enter money amount: "))
-     if cash_input == sum(hd1["item_price"]):
+     print(type(cash_input))
+     print(callable(cash_input))
+     if cash_input == coins:
        print("No change owed. Thank you for choosing vending machine")
-     if cash_input < sum:
+     if cash_input < coins:
          print("Insert right amount: ")
          coins+=1
      else:
-        cash_input > sum
-        coins = cash_input - sum
-        print("Here is your change", sum)
+        cash_input > coins
+        coins = cash_input - coins
+        print("Here is your change", coins)
         print("Thank you for using this vending machine. Have a great day!")
 
       
