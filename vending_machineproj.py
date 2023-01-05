@@ -145,7 +145,7 @@ def hot_drinksfunc():
     print("\nYour products are: ")
     print(f"Item: {i['item']} --- Price: {i['item_price']}")  
  else:
-    print("Please enter a valid response")
+    print("\nPlease enter a valid response\n")
     print(hot_drinksfunc())
 
 
@@ -177,7 +177,7 @@ def cold_drinksfunc():
     print("\nYour products are: ")
     print(f"Item: {cd4['item']} --- Price: {cd4['item_price']}")
  else:
-    print("Please enter a valid response")
+    print("\nPlease enter a valid response\n")
     print(cold_drinksfunc())
  
 
@@ -211,7 +211,7 @@ def chips_func():
  elif (chitem_id == "Finish"):
    print(change_func())
  else:
-   print("Please enter a valid response")
+   print("\nPlease enter a valid response\n")
    print(chips_func())
 
 
@@ -240,7 +240,7 @@ def choco_func():
  elif (citem_id == "Finish"):
     print(change_func())
  else:
-    print("Please enter a valid response")
+    print("\nPlease enter a valid response\n")
     print(choco_func())
 
 
@@ -267,23 +267,20 @@ def change_func():
      coins = ch1["item_price"]
      coins = ch2["item_price"]
      coins = (ch3["item_price"])
-     cash_input = 10,20,30,40
-     print(type(change_func))
-     print(callable(change_func))
-     vm.append(prompt)
-     cash_input= int(input("Enter money amount: "))
-     print(type(cash_input))
-     print(callable(cash_input))
-     if cash_input == coins:
-       print("No change owed. Thank you for choosing vending machine")
-     if cash_input < coins:
-         print("Insert right amount: ")
-         coins+=1
+
+
+     balance = int(input("Please enter amount: "))
+     if balance >= coins:
+        change = balance - coins
+      
+        print("Your change is: ", change)
+        coins -=1
+     elif balance == coins:
+        print("No amount due.")
      else:
-        cash_input > coins
-        coins = cash_input - coins
-        print("Here is your change", coins)
-        print("Thank you for using this vending machine. Have a great day!")
+        balance <= coins
+        print("Invalid amount. Error")
+    
 
       
 if (currency == 'yes'):
