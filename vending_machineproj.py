@@ -96,7 +96,7 @@ currency = (str(input("This machine can only take in AED/Dirhams. Are you sure y
 item_list = []
 
 def vendyfunc(v):
-  print(vending)
+ 
   if(v == 'Hot drinks'):
      hot_drinksfunc()
   elif( v == 'Cold drinks'):
@@ -271,7 +271,7 @@ def change_func(z):
 
       
 if (currency == 'yes'):
- print(vending)
+    print(vending)
 v = str(input("\nChoose from the following category, 'N' to quit: \n"))
 vendyfunc(v)
 selection = str(input("\nIf you'd like to continue, press 'C or press 'Q' to quit: "))
