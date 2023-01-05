@@ -274,7 +274,7 @@ def change_func():
         change = balance - coins
       
         print("Your change is: ", change)
-        coins -=1
+        
      elif balance == coins:
         print("No amount due.")
      else:
