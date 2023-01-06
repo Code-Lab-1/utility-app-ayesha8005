@@ -77,13 +77,9 @@ def change_func(tt):
     print("Invalid amount. Error")
 
 
-def vendy (v):
-    if selection == 'C':
-        print(vending(v))
-    else:
-        print("Have a good day!")
 
 #----------------MAIN BODY-------------------
+
 print(vending)
 v = str(input("\nChoose from the following category, 'N' to quit: \n"))
 if(v == 'Hot drinks'):
@@ -142,7 +138,18 @@ if(v == 'Hot drinks'):
       print("\nPlease enter a valid response\n")
    else:
      print("INVALID RESPONSE")
+
      print("The products dispensed are: ", dispensed)
+     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+   if selection == 'C':
+     vm = (vending(v))
+     print(vm)
+   else:
+    print("Have a good day!\n")
+
+     
+
     
 elif(v == 'Cold drinks'):
   while m<=1:
@@ -200,7 +207,16 @@ elif(v == 'Cold drinks'):
       print("\nPlease enter a valid response\n")
   else:
    print("INVALID RESPONSE")
+
    print("The products dispensed are: ", dispensed)
+   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+  if selection == 'C':
+     vm = (vending(v))
+     print(vm)
+  else:
+    print("Have a good day!\n")
+
 
 elif(v == 'Chips'):
   while m<=1:
@@ -258,8 +274,16 @@ elif(v == 'Chips'):
       print("\nPlease enter a valid response\n")
   else:
    print("INVALID RESPONSE")
+
    print("The products dispensed are: ", dispensed)
-  
+   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+  if selection == 'C':
+     vm = (vending(v))
+     print(vm)
+  else:
+    print("Have a good day!\n")
+
 elif(v == 'Chocolate'):
   while m<=1:
     print("\n**********************************\n")
@@ -314,7 +338,9 @@ print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 print("Thank you for using our vending machine!\n")
 selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
 if selection == 'C':
-    (vendy(v))
+    vm = (vending(v))
+    print(vm)
 else:
-    print("QUIT.")
+    print("Have a good day!\n")
 
+ 
