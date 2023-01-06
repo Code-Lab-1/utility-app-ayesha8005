@@ -42,12 +42,11 @@ c4 = {
   "item" : "BBQ Pringles", "item_price" : 5, "item_id" : "C4",   
 }
 
-
 ch1 = {
   "item" : "Galaxy Smooth", "item_price" : 3, "item_id" : "D1",
 }
 ch2 = {
-  "item" : "Twix", "item_price" : 3, "item_id" : "D2",
+  "item" : "Twix", "item_price" : 5, "item_id" : "D2",
 } 
 ch3 = {
   "item" : "Kitkat", "item_price" : 2, "item_id" : "D3",
@@ -58,240 +57,264 @@ cold_drinks = [cd1,cd2,cd3,cd4]
 chips = [c1,c2,c3,c4]
 chocolate = [ch1,ch2,ch3]
 vending = ["Hot drinks", "Cold drinks", "Chips", "Chocolate"]
-vending_machine = [hot_drinks,cold_drinks,chips,chocolate]
-
-
-
-def add_hdrink(e):
-  hd = (input("\nWould you like to add another drink? Enter 'Y' or else 'N' : \n"))
-  if (hd == 'Y'):
-    hot_drinksfunc(e)
-  else:
-   change_func(e)
-
-
-def add_cdrink(e):
-  cd = (input("\nWould you like to add another drink? Enter 'Y' or else 'N' : \n"))
-  if (cd == 'Y'):
-    cold_drinksfunc(e)
-  else:
-    change_func(e)
-
-def add_chips(e):
-  cd = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
-  if (cd == 'Y'):
-    chips_func(e)
-  else:
-    change_func(e)
-
-def add_choco(e):
-  choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
-  if (choco == 'Y'):
-    choco_func(e)
-  else:
-    change_func(e)
-
 currency = (str(input("This machine can only take in AED/Dirhams. Are you sure you want to continue. (yes/no): ")))
-
 item_list = []
+total=0
+m=1
+dispensed=[]
 
-def vendyfunc(v):
- 
-  if(v == 'Hot drinks'):
-     hot_drinksfunc()
-  elif( v == 'Cold drinks'):
-     cold_drinksfunc()
-  elif (v == 'Chips'):
-     chips_func()
-  elif(v == 'Chocolate'):
-     choco_func()
+
+def change_func(tt):
+  coins=tt
+  balance = int(input("Please enter amount: "))
+  if balance >= coins:
+    change = balance - coins
+    print("Your change is: ", change)
+  elif balance == coins:
+    print("No amount due.")
   else:
-     change_func()
- 
- 
+    balance <= coins
+    print("Invalid amount. Error")
 
 
-def hot_drinksfunc():
+def vendy (v):
+    if selection == 'C':
+        print(vending(v))
+    else:
+        print("Have a good day!")
 
- for i in hot_drinks:
-    print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
-    print("--------------------------------------------------------\n")
- print("**********************************\n")
- user_input = print("Enter the Item ID for your wanted product, or 'Finish' to quit: ")
- items_id = str(input())
- if (items_id == 'A1'):
-    hot_choco = 4
-    add_hdrink(hd1)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {hd1['item']} --- Price: {hd1['item_price']}")
- elif (items_id == 'A2'):
-   green_tea = 3
-   add_hdrink(hd2)
-   print("\nYour products dispensed are: ")
-   print(f"Item: {hd2['item']} --- Price: {hd2['item_price']}")
- elif (items_id == 'A3'):
-   karak = 2
-   add_hdrink(hd3)
-   print("\nYour products dispensed are: ")
-   print(f"Item: {hd3['item']} --- Price: {hd3['item_price']}")
- elif (items_id == 'A4'):
-   cappu = 5
-   add_hdrink(hd4)
-   print("\nYour products dispensed are: ")
-   print(f"Item: {hd4['item']} --- Price: {hd4['item_price']}")
- elif (items_id == "Finish"):
-    change_func()
-    print("\nYour products dispensed are: ")
-    print(f"Item: {i['item']} --- Price: {i['item_price']}")  
- else:
-    print("\nPlease enter a valid response\n")
-    hot_drinksfunc()
-
-
-def cold_drinksfunc():
- for i in cold_drinks:
-   print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
-   print("--------------------------------------------\n")
- print("**********************************\n")
- item_list = str(input())
- print("Enter the Item ID for your wanted product or 'Finish' to quit: ")
- if (item_list == 'B1'):
-     iced_latte = 15
-     add_cdrink(cd1)
-     print("\nYour products dispensed are: ")
-     print(f"Item: {cd1['item']} --- Price: {cd1['item_price']}")
- elif (item_list == 'B2'):
-     Caramel_Macchiato = 17
-     add_cdrink(cd2)
-     print("\nYour products dispensed are: ")
-     print(f"Item: {cd2['item']} --- Price: {cd2['item_price']}")
- elif (item_list == 'B3'):
-     Iced_Tea = 13
-     add_cdrink(cd3)
-     print("\nYour products dispensed are: ")
-     print(f"Item: {cd3['item']} --- Price: {cd3['item_price']}")
- elif (item_list == 'B4'):
-     Lime_Soda = 9
-     add_cdrink(cd4)
-     print("\nYour products dispensed are: ")
-     print(f"Item: {cd4['item']} --- Price: {cd4['item_price']}")
- elif (item_list == "Finish"):
-     change_func()
- else:
-     print("\nPlease enter a valid response\n")
-     cold_drinksfunc()
- 
-
-def chips_func():
- for i in chips:
-   print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
-   print("--------------------------------------------\n")
- print("**********************************\n")
- print("Enter the item ID for your wanted product or 'Finish' to quit: ")
- chitem_id = str(input())
- if (chitem_id == 'C1'):
-   lays_chilli = 3
-   add_chips(c1)
-   print("\nYour products dispensed are: ")
-   print(f"Item: {c1['item']} --- Price: {c1['item_price']}")
- elif (chitem_id == 'C2'):
-    takis = 6
-    add_chips(c2)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {c2['item']} --- Price: {c2['item_price']}")
- elif (chitem_id == 'C3'):
-    oman = 2
-    add_chips(c3)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {c3['item']} --- Price: {c3['item_price']}")
- elif (chitem_id == 'C4'):
-    bbq = 5
-    add_chips(c4)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {c4['item']} --- Price: {c4['item_price']}")
- elif (chitem_id == "Finish"):
-   change_func()
- else:
-   print("\nPlease enter a valid response\n")
-   chips_func()
-
-
-def choco_func():
- for i in chocolate:
-   print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
-   print("--------------------------------------------\n")
- print("**********************************\n")
- print("Enter the item ID for your wanted product or 'Finish' to quit: ")
- citem_id = str(input())
- if (citem_id == 'D1'):
-    galaxy_smooth = 3
-    add_choco(ch1)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {ch1['item']} --- Price: {ch1['item_price']}")
- elif (citem_id == 'D2'):
-    twix = 3
-    add_choco(ch2)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {ch2['item']} --- Price: {ch2['item_price']}")
- elif (citem_id == 'D3'):
-    kitkat = 2
-    add_choco(ch3)
-    print("\nYour products dispensed are: ")
-    print(f"Item: {ch3['item']} --- Price: {ch3['item_price']}") 
- elif (citem_id == "Finish"):
-    change_func()
- else:
-    print("\nPlease enter a valid response\n")
-    choco_func()
-
-
-print("The maximum number of coins that can be inputted is 10-50.")
-print("\n********************************************************************************************************\n")
-
-vm=[]
-
-prompt = ""
-
-def change_func(z):
- x = z.get("item_price")
- coins=int(x)
- balance = int(input("\nPlease enter amount: "))
- if balance >= coins:
-     change = balance - coins
-      
-     print("Your change is: ", change)
- elif balance == coins:
-     print("No amount due.")
- else:
-     balance <= coins
-     print("Invalid amount. Error")
-
- print("Thank you for choosing our vending machine!")
-    
-
-      
-if (currency == 'yes'):
-    print(vending)
+#----------------MAIN BODY-------------------
+print(vending)
 v = str(input("\nChoose from the following category, 'N' to quit: \n"))
-vendyfunc(v)
-selection = str(input("\nIf you'd like to continue, press 'C or press 'Q' to quit: "))
-if (selection == 'Hot drinks'):
-  print("\n**********************************\n")
-  hot_drinksfunc()
-elif (selection == 'Cold drinks'):
-  print("\n**********************************\n")
-  cold_drinksfunc()
-elif (selection == 'Chips'):
-  print("\n**********************************\n")
-  chips_func()
-elif (selection == 'Chocolate'):
-  print("\n**********************************\n")
-  choco_func()
-elif (selection == 'C'):
-    (vendyfunc(v))
-elif (selection == 'Q'):
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-    print("QUIT.")
+if(v == 'Hot drinks'):
+   while m<=1:
+    print("\n**********************************\n")
+    for i in hot_drinks:
+     #menu
+     print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
+     print("--------------------------------------------\n")
+    print("**********************************\n")
+    #id
+    print("Enter the item ID for your wanted product or 'Finish' to quit: ")
+    chitem_id = str(input())
+    if (chitem_id == 'A1'):
+      j=hd1
+      total+=hd1["item_price"]   
+      dispensed.append(hd1["item"])   
+      hotd = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (hotd == 'Y'):
+        continue
+      else:
+         change_func(total)
+         break
+    elif (chitem_id == 'A2'):
+      total+=hd2["item_price"]
+      dispensed.append(hd2["item"])
+      hotd = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (hotd == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break  
+      print("\nYour products are: ")
+      print(f"Item: {hd2['item']} --- Price: {hd2['item_price']}")
+    elif (chitem_id == 'A3'):
+      total+=hd3["item_price"]
+      hotd = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(hd3["item"])
+      if (hotd == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (chitem_id == 'A4'):
+      total+=hd4["item_price"]
+      hotd = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(hd4["item"])
+      if (hotd == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (chitem_id == "Finish"):
+      print(total)
+    else:
+      print("\nPlease enter a valid response\n")
+   else:
+     print("INVALID RESPONSE")
+     print("The products dispensed are: ", dispensed)
+    
+elif(v == 'Cold drinks'):
+  while m<=1:
+    print("\n**********************************\n")
+    for i in cold_drinks:
+     #menu
+      print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
+      print("--------------------------------------------\n")
+    print("**********************************\n")
+    #id
+    print("Enter the item ID for your wanted product or 'Finish' to quit: ")
+    cditem_id = str(input())
+    if (cditem_id == 'B1'):
+      j=cd1
+      total+=cd1["item_price"]   
+      dispensed.append(cd1["item"])   
+      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (cold == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break
+    elif (cditem_id == 'B2'):
+      total+=cd2["item_price"]
+      dispensed.append(cd2["item"])
+      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (cold == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break  
+      print("\nYour products are: ")
+      print(f"Item: {cd2['item']} --- Price: {cd2['item_price']}")
+    elif (cditem_id == 'B3'):
+      total+=cd3["item_price"]
+      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(cd3["item"])
+      if (cold == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (cditem_id == 'B4'):
+      total+= cd4["item_price"]
+      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(hd4["item"])
+      if (cold == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (cditem_id == "Finish"):
+      print(total)
+    else:
+      print("\nPlease enter a valid response\n")
+  else:
+   print("INVALID RESPONSE")
+   print("The products dispensed are: ", dispensed)
+
+elif(v == 'Chips'):
+  while m<=1:
+    print("\n**********************************\n")
+    for i in chips:
+     #menu
+      print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
+      print("--------------------------------------------\n")
+    print("**********************************\n")
+    #id
+    print("Enter the item ID for your wanted product or 'Finish' to quit: ")
+    cpitem_id = str(input())
+    if (cpitem_id == 'C1'):
+      j=c1
+      total+=c1["item_price"]   
+      dispensed.append(c1["item"])   
+      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (chip == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break
+    elif (cpitem_id == 'C2'):
+      total+=c2["item_price"]
+      dispensed.append(c2["item"])
+      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      if (chip == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break  
+      print("\nYour products are: ")
+      print(f"Item: {c2['item']} --- Price: {c2['item_price']}")
+    elif (cpitem_id == 'C3'):
+      total+=c3["item_price"]
+      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(c3["item"])
+      if (cold == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (cpitem_id == 'C4'):
+      total+= c4["item_price"]
+      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(c4["item"])
+      if (chip == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+    elif (cpitem_id == "Finish"):
+      print(total)
+    else:
+      print("\nPlease enter a valid response\n")
+  else:
+   print("INVALID RESPONSE")
+   print("The products dispensed are: ", dispensed)
+  
+elif(v == 'Chocolate'):
+  while m<=1:
+    print("\n**********************************\n")
+    for i in chocolate:
+     #menu
+      print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
+      print("--------------------------------------------\n")
+    print("**********************************\n")
+    #id
+    print("Enter the item ID for your wanted product or 'Finish' to quit: ")
+    citem_id = str(input())
+    if (citem_id == 'D1'):
+      j=ch1
+      total+=ch1["item_price"]   
+      dispensed.append(ch1["item"])   
+      choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
+      if (choco == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break
+    elif (citem_id == 'D2'):
+      total+=ch2["item_price"]
+      dispensed.append(ch2["item"])
+      choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
+      if (choco == 'Y'):
+        continue
+      else:
+        change_func(total)
+        break  
+      print("\nYour products are: ")
+      print(f"Item: {ch2['item']} --- Price: {ch2['item_price']}")
+    elif (citem_id == 'D3'):
+      total+=ch3["item_price"]
+      choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
+      dispensed.append(ch3["item"])
+      if (choco == 'Y'):
+        continue
+      else:
+        change_func(total) 
+        break 
+      
+    elif (citem_id == "Finish"):
+      print(total)
+    else:
+      print("\nPlease enter a valid response\n")
 else:
   print("INVALID RESPONSE")
+
+print("The products dispensed are: ", dispensed)
+print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+print("Thank you for using our vending machine!\n")
+selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+if selection == 'C':
+    (vendy(v))
+else:
+    print("QUIT.")
 
