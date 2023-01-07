@@ -1,6 +1,6 @@
-print("\n                 ** ----- Welcome to the vending machine ----- **\n")
+print("\n                 ** ----- Welcome to the vending machine ----- **\n") #Welcome message
 
-
+#Items dictionaries
 hd1 = {
   "item" : "Hot Chocolate", "item_price" : 4, "item_id" : "A1", 
 }
@@ -52,6 +52,7 @@ ch3 = {
   "item" : "Kitkat", "item_price" : 2, "item_id" : "D3",
 }
 
+#Variables
 hot_drinks = [hd1,hd2,hd3,hd4]
 cold_drinks = [cd1,cd2,cd3,cd4]
 chips = [c1,c2,c3,c4]
@@ -63,7 +64,7 @@ total=0
 m=1
 dispensed=[]
 
-
+#Using Function for the change feature
 def change_func(tt):
   coins=tt
   balance = int(input("Please enter amount: "))
@@ -79,24 +80,24 @@ def change_func(tt):
 
 
 #----------------MAIN BODY-------------------
-
+#Using the IF-ELIF nested conditions
 print(vending)
 v = str(input("\nChoose from the following category, 'N' to quit: \n"))
 if(v == 'Hot drinks'):
    while m<=1:
     print("\n**********************************\n")
     for i in hot_drinks:
-     #menu
+     #Prints menu
      print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
      print("--------------------------------------------\n")
     print("**********************************\n")
-    #id
+    #Compares the users entered "Item id", product code
     print("Enter the item ID for your wanted product or 'Finish' to quit: ")
     chitem_id = str(input())
     if (chitem_id == 'A1'):
       j=hd1
       total+=hd1["item_price"]   
-      dispensed.append(hd1["item"])   
+      dispensed.append(hd1["item"]) #Adding user's selected item's  
       hotd = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
       if (hotd == 'Y'):
         continue
@@ -139,9 +140,9 @@ if(v == 'Hot drinks'):
    else:
      print("INVALID RESPONSE")
 
-     print("The products dispensed are: ", dispensed)
+     print("The products dispensed are: ", dispensed) #Dispensing user's selected item's
      print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+   selection = str(input("Press 'C' to continue buying, 'Q' to quit: ")) #Variable for user if they would like to continue or quit
    if selection == 'C':
      vm = (vending(v))
      print(vm)
@@ -155,17 +156,17 @@ elif(v == 'Cold drinks'):
   while m<=1:
     print("\n**********************************\n")
     for i in cold_drinks:
-     #menu
+     #Prints menu
       print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
       print("--------------------------------------------\n")
     print("**********************************\n")
-    #id
-    print("Enter the item ID for your wanted product or 'Finish' to quit: ")
+    #Compares the users entered "Item id", product code
+    print("Enter the item ID for your wanted product or 'Finish' to quit: ") 
     cditem_id = str(input())
     if (cditem_id == 'B1'):
       j=cd1
       total+=cd1["item_price"]   
-      dispensed.append(cd1["item"])   
+      dispensed.append(cd1["item"]) #Adding user's selected item's  
       cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
       if (cold == 'Y'):
         continue
@@ -208,9 +209,9 @@ elif(v == 'Cold drinks'):
   else:
      print("INVALID RESPONSE")
 
-     print("The products dispensed are: ", dispensed)
+     print("The products dispensed are: ", dispensed) #Dispensing user's selected item's
      print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-  selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+  selection = str(input("Press 'C' to continue buying, 'Q' to quit: ")) #Variable for user if they would like to continue or quit
   if selection == 'C':
        vm = (vending(v))
        print(vm)
@@ -222,17 +223,17 @@ elif(v == 'Chips'):
   while m<=1:
     print("\n**********************************\n")
     for i in chips:
-     #menu
+      #Prints menu
       print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
       print("--------------------------------------------\n")
     print("**********************************\n")
-    #id
+    #Compares the users entered "Item id", product code
     print("Enter the item ID for your wanted product or 'Finish' to quit: ")
     cpitem_id = str(input())
     if (cpitem_id == 'C1'):
       j=c1
       total+=c1["item_price"]   
-      dispensed.append(c1["item"])   
+      dispensed.append(c1["item"]) #Adding user's selected item's 
       chip = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
       if (chip == 'Y'):
         continue
@@ -275,9 +276,9 @@ elif(v == 'Chips'):
   else:
      print("INVALID RESPONSE")
 
-     print("The products dispensed are: ", dispensed)
+     print("The products dispensed are: ", dispensed) #Dispensing user's selected item's
      print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-  selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+  selection = str(input("Press 'C' to continue buying, 'Q' to quit: ")) #Variable for user if they would like to continue or quit
   if selection == 'C':
      vm = (vending(v))
      print(vm)
@@ -288,17 +289,17 @@ elif(v == 'Chocolate'):
   while m<=1:
     print("\n**********************************\n")
     for i in chocolate:
-     #menu
+     #Prints menu
       print(f"Item: {i['item']} --- Price: {i['item_price']} --- Item ID: {i['item_id']}")
       print("--------------------------------------------\n")
     print("**********************************\n")
-    #id
+    #Compares the users entered "Item id", product code
     print("Enter the item ID for your wanted product or 'Finish' to quit: ")
     citem_id = str(input())
     if (citem_id == 'D1'):
       j=ch1
       total+=ch1["item_price"]   
-      dispensed.append(ch1["item"])   
+      dispensed.append(ch1["item"]) #Adding user's selected item's 
       choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
       if (choco == 'Y'):
         continue
@@ -319,7 +320,7 @@ elif(v == 'Chocolate'):
     elif (citem_id == 'D3'):
       total+=ch3["item_price"]
       choco = (input("\nWould you like to add another Chocolate? Enter 'Y' or else 'N' : \n"))
-      dispensed.append(ch3["item"])
+      dispensed.append(ch3["item"]) #Dispensing user's selected item's
       if (choco == 'Y'):
         continue
       else:
@@ -336,7 +337,7 @@ else:
   print("The products dispensed are: ", dispensed)
   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
   print("Thank you for using our vending machine!\n")
-selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+selection = str(input("Press 'C' to continue buying, 'Q' to quit: ")) #Variable for user if they would like to continue or quit
 if selection == 'C':
     vm = (vending(v))
     print(vm)
