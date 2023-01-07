@@ -206,14 +206,14 @@ elif(v == 'Cold drinks'):
     else:
       print("\nPlease enter a valid response\n")
   else:
-   print("INVALID RESPONSE")
+     print("INVALID RESPONSE")
 
-   print("The products dispensed are: ", dispensed)
-   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+     print("The products dispensed are: ", dispensed)
+     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+  selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
   if selection == 'C':
-     vm = (vending(v))
-     print(vm)
+       vm = (vending(v))
+       print(vm)
   else:
     print("Have a good day!\n")
 
@@ -233,7 +233,7 @@ elif(v == 'Chips'):
       j=c1
       total+=c1["item_price"]   
       dispensed.append(c1["item"])   
-      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      chip = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
       if (chip == 'Y'):
         continue
       else:
@@ -242,7 +242,7 @@ elif(v == 'Chips'):
     elif (cpitem_id == 'C2'):
       total+=c2["item_price"]
       dispensed.append(c2["item"])
-      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      chip = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
       if (chip == 'Y'):
         continue
       else:
@@ -252,7 +252,7 @@ elif(v == 'Chips'):
       print(f"Item: {c2['item']} --- Price: {c2['item_price']}")
     elif (cpitem_id == 'C3'):
       total+=c3["item_price"]
-      cold = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      cold = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
       dispensed.append(c3["item"])
       if (cold == 'Y'):
         continue
@@ -261,7 +261,7 @@ elif(v == 'Chips'):
         break 
     elif (cpitem_id == 'C4'):
       total+= c4["item_price"]
-      chip = (input("\nWould you like to add another Drink? Enter 'Y' or else 'N' : \n"))
+      chip = (input("\nWould you like to add another Chips? Enter 'Y' or else 'N' : \n"))
       dispensed.append(c4["item"])
       if (chip == 'Y'):
         continue
@@ -269,20 +269,20 @@ elif(v == 'Chips'):
         change_func(total) 
         break 
     elif (cpitem_id == "Finish"):
-      print(total)
+       print(total)
     else:
       print("\nPlease enter a valid response\n")
   else:
-   print("INVALID RESPONSE")
+     print("INVALID RESPONSE")
 
-   print("The products dispensed are: ", dispensed)
-   print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-   selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
+     print("The products dispensed are: ", dispensed)
+     print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+  selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
   if selection == 'C':
      vm = (vending(v))
      print(vm)
   else:
-    print("Have a good day!\n")
+      print("Have a good day!\n")
 
 elif(v == 'Chocolate'):
   while m<=1:
@@ -333,9 +333,9 @@ elif(v == 'Chocolate'):
 else:
   print("INVALID RESPONSE")
 
-print("The products dispensed are: ", dispensed)
-print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-print("Thank you for using our vending machine!\n")
+  print("The products dispensed are: ", dispensed)
+  print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+  print("Thank you for using our vending machine!\n")
 selection = str(input("Press 'C' to continue buying, 'Q' to quit: "))
 if selection == 'C':
     vm = (vending(v))
